@@ -1,0 +1,20 @@
+{
+  "name": "modv-healthcheck",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@modv/base-express": "^1.0.32",
+    "cors": "^2.8.5",
+    "cron": "^2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}

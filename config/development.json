@@ -1,0 +1,23 @@
+{
+  "iam": {
+    "jwtAlgorithm": "",
+    "access": {
+      "publicKey": "INVALID"
+    }
+  },
+  "database": {
+    "mongo": {
+      "host": ""
+    }
+  },
+  "request": {
+    "bodyParser": {
+      "limit": "1mb"
+    },
+    "limiter": {
+      "windowMs": 10000,
+      "max": 10
+    }
+  },
+  "swaggerDocEndpoint": "https://api.modv.io/swagger/docs"
+}

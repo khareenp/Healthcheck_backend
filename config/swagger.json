@@ -1,0 +1,79 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "MODV Healthcheck API",
+    "version": "1.0.0",
+    "title": "MODV Healthcheck API",
+    "termsOfService": "https://modv.io/terms/",
+    "contact": {
+      "email": "contact@modv.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "basePath": "/healthcheck",
+  "schemes": ["https"],
+  "securityDefinitions": {
+    "jwt": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "jwt"
+    }
+  },
+  "paths": {
+    "/healthcheck": {
+      "get": {
+        "x-swagger-router-controller": "healthcheck",
+        "x-il-has-permission": ["Unauthenticated"],
+        "tags": ["Healthcheck"],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/system": {
+      "get": {
+        "summary": "Get MODV system health",
+        "description": "Gets the healthcheck status of all containers",
+        "tags": ["Healthcheck"],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SystemHealthcheck"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "SystemHealthcheck": {
+      "properties": {
+        "Containers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ContainerHealthcheck"
+          }
+        }
+      }
+    },
+    "ContainerHealthcheck": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "startedOn": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
