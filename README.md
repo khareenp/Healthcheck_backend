@@ -1,4 +1,6 @@
 # modv-healthcheck
+##All content belongs to Yick Solutions LTD
+
 
 Server for API status checker
 Server was built using Node.
